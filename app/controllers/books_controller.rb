@@ -1,7 +1,6 @@
 class BooksController < ApplicationController
  
   def index
-    # newは関数やファイルの名前でなく、一つの処理の名前
     @book = Book.new
     @books = Book.all
   end
@@ -13,7 +12,6 @@ class BooksController < ApplicationController
       flash[:notice] = "Create is successfully"
       redirect_to book_path(@book.id)
     else
-      # renderは情報を取らずにそのページで画面を表示するので、以下の文で情報を与える必要がある
       @books = Book.all
       flash[:notice] = "Create error"
       render :index
@@ -32,12 +30,9 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-    # flashはredirect_toの上に記述しておけば大丈夫
-    # editでupdateは使わないので、ここに記述
       flash[:notice] = "Update is successfully"
       redirect_to book_path(@book.id)  
     else
-      # エラーメッセージを表示する際または、vieの中で実行する際は＠をつける
       flash.now[:notice] = "Update error"
       render :edit
     end

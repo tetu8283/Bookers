@@ -8,7 +8,6 @@ class BooksController < ApplicationController
   
   def create
     # データを受けとり登録(newで新しくレコードを作成)
-    # バリデーション
     @book = Book.new(book_params)
     if @book.save
       flash[:notice] = "Create is successfully"

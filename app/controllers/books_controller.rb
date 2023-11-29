@@ -1,8 +1,5 @@
 class BooksController < ApplicationController
-  def new 
-    
-  end
-  
+ 
   def index
     # newは関数やファイルの名前でなく、一つの処理の名前
     @book = Book.new

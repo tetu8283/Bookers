@@ -3,7 +3,6 @@
 <div>
 <%= flash[:notice] %>
 </div>
-
 <h2>Editing Book</h2>
 <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
     <div class="new-title">
@@ -12,18 +11,15 @@
            <%= f.text_field :title %>
         </div>
     </div>	
-    
     <div class="new-body">
         <label>Body</label>
             <div class="input-big">
                 <%= f.text_area :body %>
             </div>
     </div>
-    
     <div class="submit-button">
         <%= f.submit 'Update Book' %>
     </div>
-    
   <table>
         <tbody>
             <tr>
